@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\TaskManagementDomain.csproj",
+      "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\TaskManagementDomain.csproj",
       "projectName": "TaskManagement.Domain",
-      "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\TaskManagementDomain.csproj",
+      "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\TaskManagementDomain.csproj",
       "packagesPath": "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\OnePoint-bijay\\AppData\\Roaming\\NuGet\\NuGet.Config",

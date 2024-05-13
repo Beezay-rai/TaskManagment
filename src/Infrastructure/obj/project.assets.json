@@ -3557,11 +3557,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Infrastructure\\TaskManagementInfrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Infrastructure\\TaskManagementInfrastructure.csproj",
       "projectName": "TaskManagementInfrastructure",
-      "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Infrastructure\\TaskManagementInfrastructure.csproj",
+      "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Infrastructure\\TaskManagementInfrastructure.csproj",
       "packagesPath": "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\OnePoint-bijay\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3578,8 +3578,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Application\\TaskManagementApplication.csproj": {
-              "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Application\\TaskManagementApplication.csproj"
+            "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\TaskManagementApplication.csproj": {
+              "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\TaskManagementApplication.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tdt7wueB4XriXhb7qqfmZldgik3VjoxZJq63W3Ra9/MP0DVZCyPc85GCZu98WvOUexKoumDqdwoILy+BBKujBA==",
+  "dgSpecHash": "raRWHqtf5HhAe/HtOXqe2kgwuQ+aSd7a/QwNYArBtMwcdGLQgqbCs5BuD2AELy3TF3A30FfJktuEPLteW4HObg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Web\\TaskManagementApi\\TaskManagementApi.csproj",
+  "projectFilePath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Web\\TaskManagementApi\\TaskManagementApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Infrastructure\\TaskManagementInfrastructure.csproj": {}
+    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Infrastructure\\TaskManagementInfrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Application\\TaskManagementApplication.csproj": {
+    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\TaskManagementApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Application\\TaskManagementApplication.csproj",
+        "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\TaskManagementApplication.csproj",
         "projectName": "TaskManagementApplication",
-        "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Application\\TaskManagementApplication.csproj",
+        "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\TaskManagementApplication.csproj",
         "packagesPath": "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Application\\obj\\",
+        "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\OnePoint-bijay\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\TaskManagementDomain.csproj": {
-                "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\TaskManagementDomain.csproj"
+              "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\TaskManagementDomain.csproj": {
+                "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\TaskManagementDomain.csproj"
               }
             }
           }
@@ -82,14 +82,14 @@
         }
       }
     },
-    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\TaskManagementDomain.csproj": {
+    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\TaskManagementDomain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\TaskManagementDomain.csproj",
+        "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\TaskManagementDomain.csproj",
         "projectName": "TaskManagement.Domain",
-        "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\TaskManagementDomain.csproj",
+        "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\TaskManagementDomain.csproj",
         "packagesPath": "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\OnePoint-bijay\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -142,14 +142,14 @@
         }
       }
     },
-    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Infrastructure\\TaskManagementInfrastructure.csproj": {
+    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Infrastructure\\TaskManagementInfrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Infrastructure\\TaskManagementInfrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Infrastructure\\TaskManagementInfrastructure.csproj",
         "projectName": "TaskManagementInfrastructure",
-        "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Infrastructure\\TaskManagementInfrastructure.csproj",
+        "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Infrastructure\\TaskManagementInfrastructure.csproj",
         "packagesPath": "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\OnePoint-bijay\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -166,8 +166,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Application\\TaskManagementApplication.csproj": {
-                "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagment\\src\\Application\\TaskManagementApplication.csproj"
+              "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\TaskManagementApplication.csproj": {
+                "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\TaskManagementApplication.csproj"
               }
             }
           }
