@@ -18,8 +18,21 @@ namespace TaskManagementApi
             builder.Services.AddApplicationServices()
                             .AddInfrastructure(builder.Configuration);
 
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("myClientApp", p =>
+                {
+                    p.WithOrigins("http://localhost:8088")
+                    .AllowAnyHeader()
+
+                    .AllowAnyMethod();
+                });
+                options.DefaultPolicyName = "myClientApp";
+            });
             builder.Services.AddAuthentication();
             builder.Services.AddAuthorization();
+            
 
             var app = builder.Build();
 
@@ -31,6 +44,7 @@ namespace TaskManagementApi
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("myClientApp");
             app.UseAuthentication();
             app.UseAuthorization();
 

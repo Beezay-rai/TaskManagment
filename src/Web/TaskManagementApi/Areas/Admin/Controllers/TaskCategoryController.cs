@@ -4,7 +4,7 @@ using TaskManagementApplication.Features.TaskCategories.Queries;
 
 namespace TaskManagementApi.Areas.Admin.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[area]/[controller]/[action]")]
     [Area("Admin")]
     [ApiController]
     public class TaskCategoryController : ControllerBase
