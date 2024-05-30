@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace TaskManagementInfrastructure.Data.Identity
 {
-    public class UserRole : IdentityRole<string>
+    public class UserRole : IdentityRole
     {
+        public string Description { get; set; }
     }
 }

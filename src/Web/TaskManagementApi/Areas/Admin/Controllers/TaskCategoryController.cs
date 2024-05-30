@@ -1,12 +1,14 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementApplication.Features.TaskCategories.Queries;
 
 namespace TaskManagementApi.Areas.Admin.Controllers
 {
-    [Route("api/[area]/[controller]/[action]")]
-    [Area("Admin")]
     [ApiController]
+    [Area("Admin")]
+    [Route("api/[area]/[controller]/[action]")]
+    [Authorize]
     public class TaskCategoryController : ControllerBase
     {
         private readonly IMediator _mediator;

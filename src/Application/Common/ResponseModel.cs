@@ -11,4 +11,11 @@ namespace TaskManagementApplication.Common
         public bool Status { get; set; }
         public string Message { get; set; }
     }
+
+    public class LoginResponseModel
+    {
+        public bool Status { get; set; }
+        public string Message { get; set; }
+        public Dictionary<string, object> Data { get; set; } = new Dictionary<string, object>();
+    }
 }

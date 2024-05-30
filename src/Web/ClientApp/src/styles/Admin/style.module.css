@@ -1,0 +1,13 @@
+.navBar{
+
+    @apply bg-white m-2 shadow-sm drop-shadow-md  transition-shadow  h-20 p-5 flex rounded-lg;
+}
+
+.main{
+    @apply bg-slate-100 flex-grow
+}
+
+.sideBar{
+    @apply  bg-slate-700 w-2/12 flex flex-col h-full m-2 rounded-lg
+}
+

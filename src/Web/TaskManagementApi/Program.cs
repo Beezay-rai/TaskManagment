@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
+using TaskManagementApi.Utilities;
 using TaskManagementApplication;
 using TaskManagementInfrastructure;
 namespace TaskManagementApi
@@ -12,13 +17,9 @@ namespace TaskManagementApi
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
 
             builder.Services.AddApplicationServices()
                             .AddInfrastructure(builder.Configuration);
-
-
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("myClientApp", p =>
@@ -30,9 +31,65 @@ namespace TaskManagementApi
                 });
                 options.DefaultPolicyName = "myClientApp";
             });
-            builder.Services.AddAuthentication();
+
+
+            #region Authentication
+            builder.Services.AddAuthentication(options =>
+            {
+                options.RequireAuthenticatedSignIn = true;
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidAudience = builder.Configuration["JWTConfig:ValidAudience"],
+                    ValidateAudience = true,
+                    ValidIssuer = builder.Configuration["JWTConfig:ValidIssuer"],
+                    ValidateIssuer = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTConfig:SecretKey"])),
+                    ValidateIssuerSigningKey = true
+                };
+
+            });
+
+
+
             builder.Services.AddAuthorization();
-            
+            #endregion
+
+
+            #region Api Services Registration
+            builder.Services.AddSingleton<IUtility,TaskManagementApi.Utilities.Utility>();
+            #endregion
+
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Jwt Authentication with Bearer",
+                    Scheme = "Bearer"
+                });
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement 
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Id = "Bearer",
+                                Type = ReferenceType.SecurityScheme,
+                            }
+                        }, new List<string>()
+                    }
+                });
+            });
+            builder.Services.AddEndpointsApiExplorer();
+
 
             var app = builder.Build();
 
@@ -42,6 +99,7 @@ namespace TaskManagementApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            
 
             app.UseHttpsRedirection();
             app.UseCors("myClientApp");

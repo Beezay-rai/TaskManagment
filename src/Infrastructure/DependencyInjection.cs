@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TaskManagementApplication.Interfaces;
@@ -13,7 +15,7 @@ namespace TaskManagementInfrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        public static  IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             var assembly = typeof(DependencyInjection).Assembly;
 
@@ -23,13 +25,34 @@ namespace TaskManagementInfrastructure
             {
                 options.UseSqlServer(mssqlCon);
             });
+            services.Configure<AdministratorDetail>(options => configuration.Bind("AdministratorConfig", options));
 
-            services.AddIdentityCore<ApplicationUser>()
+
+
+
+            services.AddIdentity<ApplicationUser, UserRole>()
                 .AddRoles<UserRole>()
+                .AddSignInManager<SignInManager<ApplicationUser>>()
+                .AddUserManager<UserManager< ApplicationUser>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<ApplicationDbContextInitializer>();
+
+            #region Seeding Database
+
+            using (var context = services.BuildServiceProvider().CreateScope())
+            {
+                var initialzer = context.ServiceProvider.GetRequiredService<ApplicationDbContextInitializer>();
+                 initialzer.SeedData().Wait();
+            }
+
+            #endregion
+
+
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<ITaskCategoryRepository, TaskCategoryRepository>();
             services.AddTransient<ITaskEntityRepository, TaskEntityRepository>();
+            services.AddTransient<IAuthenticateRepository, AuthenticateRepository>();
 
             //Email Service Registration
             services.Configure<EmailSettingModel>(options => configuration.Bind("EmailSettings", new EmailSettingModel()));
