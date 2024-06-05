@@ -3,7 +3,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>Task Management</title>
       </Head>
       <body >
         <Main />
