@@ -61,7 +61,7 @@ namespace TaskManagementApi
 
 
             #region Api Services Registration
-            builder.Services.AddSingleton<IUtility,TaskManagementApi.Utilities.Utility>();
+            builder.Services.AddSingleton<IUtility, TaskManagementApi.Utilities.Utility>();
             #endregion
 
             builder.Services.AddSwaggerGen(options =>
@@ -74,7 +74,7 @@ namespace TaskManagementApi
                     Description = "Jwt Authentication with Bearer",
                     Scheme = "Bearer"
                 });
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement 
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
                         new OpenApiSecurityScheme
@@ -94,12 +94,11 @@ namespace TaskManagementApi
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-            
+
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
+
 
             app.UseHttpsRedirection();
             app.UseCors("myClientApp");

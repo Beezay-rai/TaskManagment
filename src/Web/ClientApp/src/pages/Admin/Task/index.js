@@ -13,9 +13,11 @@ export default function index() {
             <p className="route text-blue-600">/Admin/Task</p>
           </section>
 
-          <button type="button" className="btn-primary ">
+          <a href="Task/create">
+          <button type="button" className="btn btn-primary ">
             + Add
           </button>
+          </a>
         </div>
         <table className={adminStyle.table}>
           <thead>
