@@ -2,8 +2,16 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import adminStyle from "../../../styles/Admin/style.module.css";
+import { useEffect, useState } from "react";
 
 export default function index() {
+  
+  
+  const[taskList,setTaskList]=useState([]);
+
+  useEffect(function(){
+    alert("called")
+  })
   return (
     <>
       <div className={adminStyle.tableCover}>
@@ -14,9 +22,9 @@ export default function index() {
           </section>
 
           <a href="Task/create">
-          <button type="button" className="btn btn-primary ">
-            + Add
-          </button>
+            <button type="button" className="btn btn-primary ">
+              + Add
+            </button>
           </a>
         </div>
         <table className={adminStyle.table}>

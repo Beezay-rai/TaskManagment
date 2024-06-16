@@ -1,0 +1,8 @@
+src/Application/bin
+src/Application/obj
+src/Domain/obj
+src/Domain/bin
+src/Infrastructure/obj
+src/Infrastructure/bin
+src/Web/TaskManagementApi/obj
+src/Web/TaskManagementApi/bin

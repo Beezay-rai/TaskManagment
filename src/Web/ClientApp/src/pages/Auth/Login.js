@@ -4,53 +4,51 @@ import { loginService } from "../../services/apiServices/auth/authService";
 import loginCss from "../../styles/login.module.css";
 import { useForm, onSubmitHandler } from "react-hook-form";
 import { useRouter } from "next/router";
+import { useSelector ,useDispatch} from "react-redux";
+import { setUserState } from "../../services/stateService/redux/redux";
 
 export default function login() {
+
   const onSubmitHandler = (data) => {
     console.log(data);
     alert(data);
   };
 
+  const dispatch = useDispatch();
+
   const router = useRouter();
 
-  const { register, handleSubmit ,formState} = useForm();
+  const { register, handleSubmit, formState } = useForm();
+
+  //Redux
+
+
 
   const onSubmit = (data) => {
-
-    try{
-      
-      let response =  loginService(data).then((apiResponse=>{
-        if(apiResponse.status){
-
-          toast.success(apiResponse.message,{
-            theme:"colored",
-            transition:Flip,
-            hideProgressBar:true,
-            autoClose:1000
-          })
-          router.push("/Admin/Dashboard")
+    try {
+      let response = loginService(data).then((apiResponse) => {
+        
+        if (apiResponse.status) {
+          toast.success(apiResponse.message, {
+            theme: "colored",
+            transition: Flip,
+            hideProgressBar: true,
+            autoClose: 1000,
+          });
+          dispatch(setUserState(apiResponse.data))
+          router.push("/Admin/Dashboard");
+        } else {
+          toast(apiResponse.message, {
+            type: "error",
+            theme: "colored",
+            transition: Flip,
+            hideProgressBar: true,
+            autoClose: 1000,
+          });
         }
-        else{
-
-          toast(apiResponse.message,{
-           type:"error",
-           theme:"colored",
-           transition:Flip,
-           hideProgressBar:true,
-           autoClose:1000,
-           
-          
-          })
-        }
-      }));
-
-    }
-    catch(ex){
-
-    }
-
-
-  }
+      });
+    } catch (ex) {}
+  };
 
   return (
     <div

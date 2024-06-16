@@ -68,7 +68,7 @@ namespace TaskManagementApi
             {
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
-                    Name = "Bearer",
+                    Name = "Authorization",
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
                     Description = "Jwt Authentication with Bearer",

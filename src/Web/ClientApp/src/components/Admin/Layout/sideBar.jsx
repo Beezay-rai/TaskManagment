@@ -1,9 +1,14 @@
-import { title } from "process";
+import React, { useState } from "react";
+
 import logo from "../../../assests/image.png";
 import adminStyle from "../../../styles/Admin/style.module.css";
 import DashboardSharpIcon from "@mui/icons-material/DashboardSharp";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
+import SettingsIcon from "@mui/icons-material/Settings";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 const menu = [
   {
     key: "1",
@@ -11,6 +16,7 @@ const menu = [
     icon: <DashboardSharpIcon />,
     url: "/Admin/Dashboard",
   },
+
   {
     key: "2",
     title: "Task",
@@ -25,9 +31,36 @@ const menu = [
   },
 ];
 
+const configSection = [
+  {
+    title: "SetUp",
+    icon: <SettingsIcon />,
+    children: [
+      {
+        title: "User",
+        icon: <PersonAddIcon />,
+      },
+      {
+        title: "Category",
+        icon: <PersonAddIcon />,
+      },
+    ],
+  },
+  {
+    title: "Setting",
+    icon: <SettingsIcon />,
+    url: "/Admin/Dashboard",
+  },
+];
+
 export default function SideBar() {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const handleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
   return (
     <div className={adminStyle.sideBar}>
+      {/* Logo of Application */}
       <div className="logo p-5 ">
         <img
           src={logo.src}
@@ -38,18 +71,74 @@ export default function SideBar() {
         ></img>
       </div>
 
-      <div className="sidebar-menu text-white p-5">
+      <div className={adminStyle.sideBarMenu}>
         <div className="menu-section">
           <h3 className="font-semibold text-slate-400 p-3">Menu</h3>
           <ul className="flex flex-col gap-1">
-            {menu.map(({ icon, title, url,key }) => {
+            {menu.map(({ icon, title, url, key }) => {
               return (
-                  <li key={key} className="rounded-md p-2 hover:bg-gray-600">
+                <li key={key} className="rounded-md p-2 hover:bg-gray-600">
+                  <a className="flex gap-2.5 font-medium  " href={url}>
+                    {icon}
+                    {title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <hr className="my-4 font-extralight" />
+
+        <div className="config-section">
+          <h3 className="font-semibold text-slate-400 p-3">Configuration</h3>
+          <ul className="flex flex-col gap-1">
+            {configSection.map(({ title, icon, url, children }, index) => {
+              return (
+                <li key={index}>
+                  {children ? (
+                    <>
+                      <button
+                        className="flex gap-2.5 font-medium w-full last-of-type:ml-auto "
+                        type="button"
+                        onClick={handleCollapse}
+                      >
+                        {icon} {title}
+                        {isCollapsed ? (
+                          <KeyboardArrowDownIcon className="ml-auto" />
+                        ) : (
+                          <KeyboardArrowUpIcon className="ml-auto" />
+                        )}
+                      </button>
+                      <ul
+                        className={
+                          adminStyle.subItems +
+                          `${
+                            isCollapsed
+                              ? ` hidden opacity-0 h-0`
+                              : ` block opacity-100 h-auto`
+                          }`
+                        }
+                      >
+                        {children.map((data) => {
+                          return (
+                            <a>
+                              <li className="flex gap-2.5">
+                                {data.icon}
+                                {data.title}
+                              </li>
+                            </a>
+                          );
+                        })}
+                      </ul>
+                    </>
+                  ) : (
                     <a className="flex gap-2.5 font-medium  " href={url}>
                       {icon}
                       {title}
                     </a>
-                  </li>
+                  )}
+                </li>
               );
             })}
           </ul>
