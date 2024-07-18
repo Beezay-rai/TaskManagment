@@ -1,0 +1,11 @@
+.vs
+src/Application/bin
+src/Application/obj
+src/Domain/bin
+src/Domain/obj
+src/Infrastructure/bin
+src/Infrastructure/obj
+src/Web/TaskManagementApi/bin
+src/Web/TaskManagementApi/obj
+src/Web/ClientApp/node_modules
+src/Web/ClientApp/.next

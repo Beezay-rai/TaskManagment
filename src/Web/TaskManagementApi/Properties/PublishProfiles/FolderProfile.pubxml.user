@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\OnePoint-bijay\Desktop\Projects\ProjectsPublishes\TaskManagementApiPub</_PublishTargetUrl>
+    <History>True|2024-07-14T03:47:42.3426944Z;False|2024-07-14T09:32:16.0602611+05:45;True|2024-06-16T13:02:43.3376607+05:45;False|2024-06-16T13:02:18.0975209+05:45;True|2024-06-16T12:51:36.6098808+05:45;True|2024-06-16T12:49:15.6360663+05:45;False|2024-06-16T12:48:53.0731151+05:45;True|2024-06-06T17:02:50.4964954+05:45;False|2024-06-06T16:58:43.8158948+05:45;False|2024-06-06T16:58:03.9382509+05:45;False|2024-06-06T16:56:21.9445325+05:45;False|2024-06-06T16:55:54.5145959+05:45;True|2024-06-06T16:46:41.6015347+05:45;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="MSSQlCon">
+      <Value>Server=DESKTOP-KH5S7CP%3bInitial Catalog=TaskManagament%3bUser=sa%3bPassword=Dotaplayer%3bTrustServerCertificate=true%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
