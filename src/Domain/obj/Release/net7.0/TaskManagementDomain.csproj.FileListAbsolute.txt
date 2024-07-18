@@ -1,0 +1,12 @@
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\bin\Release\net7.0\TaskManagement.Domain.deps.json
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\bin\Release\net7.0\TaskManagement.Domain.dll
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\bin\Release\net7.0\TaskManagement.Domain.pdb
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\TaskManagementDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\TaskManagementDomain.AssemblyInfoInputs.cache
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\TaskManagementDomain.AssemblyInfo.cs
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\TaskManagementDomain.csproj.CoreCompileInputs.cache
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\TaskManagementDomain.sourcelink.json
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\TaskManagement.Domain.dll
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\refint\TaskManagement.Domain.dll
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\TaskManagement.Domain.pdb
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\Domain\obj\Release\net7.0\ref\TaskManagement.Domain.dll
