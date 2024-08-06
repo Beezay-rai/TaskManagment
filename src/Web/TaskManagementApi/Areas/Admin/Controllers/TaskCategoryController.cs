@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementApplication.DTOs;
 using TaskManagementApplication.Features.TaskCategories.Commands.Create;
+using TaskManagementApplication.Features.TaskCategories.Commands.Delete;
+using TaskManagementApplication.Features.TaskCategories.Commands.Edit;
 using TaskManagementApplication.Features.TaskCategories.Queries;
 
 namespace TaskManagementApi.Areas.Admin.Controllers
@@ -39,6 +41,19 @@ namespace TaskManagementApi.Areas.Admin.Controllers
 
             var data = await _mediator.Send(new CreateTaskCategory() { CreateTaskCategoryDTO = taskCategory });
             return Ok(data);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> EditTaskCategory(EditTaskCategoryDTO editTaskCategoryDTO)
+        {
+            var response = await _mediator.Send(new EditTaskCategory() { EditTaskCategoryDTO = editTaskCategoryDTO });  
+            return Ok(response);
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int TaskCategoryId)
+        {
+            var response = await _mediator.Send(new DeleteTaskCategory() { TaskCategoryId = TaskCategoryId });  
+            return Ok(response);
         }
     }
 }

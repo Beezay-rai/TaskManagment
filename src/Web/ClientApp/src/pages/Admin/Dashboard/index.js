@@ -15,6 +15,8 @@ import {
 import { setIsLoading } from "../../../services/stateService/redux/redux";
 import { useState } from "react";
 import AdminStyle from "../../../styles/Admin/style.module.css";
+import CountUp from 'react-countup';
+
 
 Chart.register(
   ArcElement,
@@ -55,17 +57,20 @@ export default function Dashboard() {
       <div className="flex gap-6 p-5">
         <div className={AdminStyle.box}>
           <div className="content font-bold flex justify-between">
-            Total Task <span className="Counter text-7xl">0</span>
+            Total Task  
+            <CountUp className="Counter text-7xl" duration={5} start={0} end={150} ></CountUp>
           </div>
         </div>
         <div className={AdminStyle.box}>
-          <div className="content">
-            Completed Task <span className="Counter text-7xl">0</span>
+          <div className="content font-bold flex justify-between">
+            Total Task 
+            <CountUp className="Counter text-7xl" duration={5} start={0} end={50} ></CountUp>
           </div>
         </div>
         <div className={AdminStyle.box}>
-          <div className="content">
-            Remaining Task <span className="Counter text-7xl">0</span>
+          <div className="content font-bold flex justify-between">
+            Total Task 
+            <CountUp className="Counter text-7xl" duration={5} start={0} end={40} ></CountUp>
           </div>
         </div>
       </div>

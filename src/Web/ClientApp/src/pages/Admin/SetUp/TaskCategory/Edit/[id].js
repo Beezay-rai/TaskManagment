@@ -7,11 +7,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ErrorMessage } from "@hookform/error-message";
 import * as yup from "yup";
 import { taskCategorySchema } from "../../../../../schemas/schema";
-import { createTaskCategoryService } from "../../../../../services/apiServices/taskCategory/taskCategoryService";
+import {
+  createTaskCategoryService,
+  GetTaskCategoryServiceById,
+  updateTaskCategoryService,
+} from "../../../../../services/apiServices/taskCategory/taskCategoryService";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-export default function Edit({id}) {
+export default function Edit() {
   const {
     register,
     handleSubmit,
@@ -20,18 +25,37 @@ export default function Edit({id}) {
     resolver: yupResolver(taskCategorySchema),
   });
   const router = useRouter();
-  const {test}=router.query;
+  const { id } = router.query;
   const dispatch = useDispatch();
+  const [apiData, setApiData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (id) {
+        try {
+          dispatch(setIsLoading(true));
+          const  data  = await GetTaskCategoryServiceById(id);
+          setApiData(data);
+        } catch (error) {
+          toast.error("Failed to fetch data");
+        } finally {
+          dispatch(setIsLoading(false));
+        }
+      }
+    };
+
+    fetchData();
+  }, [id]);
   const onSubmit = async (data) => {
+    data.id=id;
     dispatch(setIsLoading(true));
     try {
-      let response = await createTaskCategoryService(data);
+      let response = await updateTaskCategoryService(data);
       if (response.status) {
         toast.success("Success !");
         router.push("./");
-      }
-      else{
-        toast.error("Error occured !")
+      } else {
+        toast.error("Error occured !");
       }
     } catch {
       toast.error("Something Went Wrong !");
@@ -42,7 +66,6 @@ export default function Edit({id}) {
 
   return (
     <>
-    {id}
       <div className="formCover bg-white shadow-md p-5 m-2 rounded-md">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="formBody">
@@ -50,7 +73,12 @@ export default function Edit({id}) {
               <div className="col-span-2 ">
                 <div className={adminStyle.inputGroup}>
                   <label>Name</label>
-                  <input placeholder="Name" name="name" {...register("name")} />
+                  <input
+                    placeholder="Name"
+                    name="name"
+                    {...register("name")}
+                    defaultValue={apiData?.name}
+                  />
                   <ErrorMessage
                     errors={errors}
                     name="name"

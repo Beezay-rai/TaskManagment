@@ -10,8 +10,8 @@ import store, {
   setIsLoading,
 } from "../../../../services/stateService/redux/redux";
 import Pagination from "../../../../components/Utilities/pagination";
-import { DataTable } from "../../../../components/common/dataTable";
 import Link from "next/link";
+import MyModal from "../../../../components/Utilities/modal";
 
 export default function index() {
   const router = useRouter();
@@ -44,8 +44,15 @@ export default function index() {
 
   const headers = ["Id", "Name"];
 
+  const [open,setOpen]=useState(false);
+
+  const handleModal=()=>setOpen(!open);
+
   return (
     <>
+    <MyModal open={open}  >
+      <h1>My custom Modal</h1>
+    </MyModal>
       <div className={adminStyle.tableCover}>
         <div className="additional flex justify-between p-2">
           <section>
@@ -64,7 +71,7 @@ export default function index() {
 what is this
         </DataTable> */}
 
-        <table className={adminStyle.table}>
+        <table className={adminStyle.adminDataTable}>
           <thead>
             <tr>
               <th width="10%">S.N</th>
@@ -91,6 +98,7 @@ what is this
                       <a href="Detail" title="Detail">
                         <VisibilityOutlinedIcon className="size-5 text-blue-400" />
                       </a>
+                      <button onClick={handleModal}>Delete</button>
                       <a href="Delete" title="Delete">
                         <DeleteOutlineOutlinedIcon className="size-5 text-red-400" />
                       </a>

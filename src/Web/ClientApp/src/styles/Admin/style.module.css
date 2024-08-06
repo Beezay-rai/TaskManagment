@@ -37,29 +37,6 @@
 
 
 
-.table thead {
-    @apply bg-slate-100 border border-slate-200;
-}
-
-.table tbody{
-    display: block;
-    height: 200px;
-    width: 100%;
-}
-
-
-.table th {
-    @apply p-3;
-}
-
-.table tbody tr {
-    @apply border-b border-b-slate-200 hover:bg-gray-100;
-}
-
-.table td {
-    @apply px-5 py-6 text-center items-center;
-}
-
 /* End Admin Table */
 
 
@@ -68,8 +45,13 @@
     @apply rounded-md border border-slate-400 outline-none px-5 py-3 focus:border-blue-700
 }
 
+.inputGroup select {
+    @apply rounded-md border border-slate-400 outline-none px-5 py-3 focus:border-blue-700 w-full
+}
+
+
 .inputGroup label {
-    @apply font-medium text-sm block font-sans size-4 mb-3
+    @apply font-medium text-sm block font-sans size-4 mb-3 w-full
 }
 
 
@@ -98,4 +80,63 @@
 
 .error {
     @apply text-red-600 block
+}
+
+
+
+
+
+
+
+
+.adminDataTable thead {
+    @apply bg-slate-100 border border-slate-200;
+}
+
+.adminDataTable tbody{
+    display: block;
+    height: 200px;
+    width: 100%;
+}
+
+
+.adminDataTable th {
+    @apply p-3;
+}
+
+.adminDataTable tbody tr {
+    @apply border-b border-b-slate-200 hover:bg-gray-100;
+}
+
+.adminDataTable td {
+    @apply px-5 py-6 text-center items-center;
+}
+
+.adminDataTable tbody {
+    display: block;
+    overflow: auto;
+} 
+
+.adminDataTable thead{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+} 
+ .adminDataTable tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+} 
+
+
+
+.adminDataTable thead {
+    width: 100%;
+}
+
+
+.row{
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
 }

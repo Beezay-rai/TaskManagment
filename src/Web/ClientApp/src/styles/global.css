@@ -15,13 +15,7 @@
     @apply bg-green-400
 }
 
-.row {
-    @apply grid gap-1;
-    @apply md:grid-cols-12;
-    @apply sm:grid-cols-1;
-    @apply lg:grid-cols-12;
 
-}
 
 .btn-group {
     @apply flex gap-1 py-2;
@@ -50,30 +44,23 @@ a {
 
 
 
-tbody {
-    display: block;
-    overflow: auto;
-}
-
-thead,
-tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    /* even columns width , fix width of table too*/
-}
-
-
-
-thead {
-    width: 100%;
-}
-
-.pagination{
+.pagination {
     display: flex;
     flex-direction: row;
 }
 
-.page-item{
-    @apply p-2 text-blue-300  mt-5
+.page-item {
+    @apply p-2 text-blue-300 mt-5
+}
+
+.calendar-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.modal{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

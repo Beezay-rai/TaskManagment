@@ -18,6 +18,17 @@ export const createTaskCategoryService = async(data)=>{
     return response;
 
 }
+
+export const updateTaskCategoryService = async(data)=>{
+    let response = await taskCategoryApi(
+        apiUrls.taskCategory.editTaskCategory.method,
+        apiUrls.taskCategory.editTaskCategory.url,
+        data
+    )
+    return response;
+
+}
+
 export const GetTaskCategoryServiceById = async(data)=>{
     let response = await taskCategoryApi(
         apiUrls.taskCategory.taskCategoryById.method,

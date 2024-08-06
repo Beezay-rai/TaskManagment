@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import adminStyle from "../../../../styles/Admin/style.module.css";
 import { useForm } from "react-hook-form";
 import { setIsLoading } from "../../../../services/stateService/redux/redux";
-import LinkButton from "../../../../components/common/linkButton";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ErrorMessage } from "@hookform/error-message";
 import * as yup from "yup";
@@ -63,12 +62,7 @@ export default function Create() {
             <button type="submit" className="btn btn-success">
               Save
             </button>
-            <LinkButton
-              className={"btn btn-primary"}
-              content={"Cancel"}
-              url={"./"}
-              type={"button"}
-            />
+     
           </div>
         </form>
       </div>

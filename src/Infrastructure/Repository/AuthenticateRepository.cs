@@ -42,13 +42,13 @@ namespace TaskManagementInfrastructure.Repository
                     else
                     {
                         response.Status = false;
-                        response.Message = "Incorrect Password !";
+                        response.Message = "Invalid Username or Password !";
                     }
                 }
                 else
                 {
                     response.Status = false;
-                    response.Message = "User Not Found !";
+                    response.Message = "Invalid Username or Password !";
                 }
 
             }

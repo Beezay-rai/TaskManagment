@@ -14,8 +14,6 @@
 
   <ItemGroup>
     <Folder Include="Features\TaskAssignments\Queries\" />
-    <Folder Include="Features\TaskCategories\Commands\Delete\" />
-    <Folder Include="Features\TaskCategories\Commands\Update\" />
     <Folder Include="Features\TaskEntities\Commands\Delete\" />
     <Folder Include="Features\TaskEntities\Commands\Update\" />
   </ItemGroup>

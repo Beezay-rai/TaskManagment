@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaskManagement.Domain.Common;
 using TaskManagementApplication.Interfaces;
 using TaskManagementInfrastructure.Data;
 
 namespace TaskManagementInfrastructure.Repository
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseAuditableEntity
     {
         private readonly ApplicationDbContext _context;
 
@@ -47,9 +48,20 @@ namespace TaskManagementInfrastructure.Repository
             return data;
         }
 
-        public async Task Update(T enitity)
+        public async Task Update(T entity)
         {
-             _context.Set<T>().Update(enitity);
+            var existingEntity = await _context.Set<T>().FindAsync(entity.Id);
+            if (existingEntity == null)
+            {
+                throw new InvalidOperationException("Entity not found.");
+            }
+
+            // Preserve the CreatedBy and CreatedDate fields
+            entity.CreatedBy = existingEntity.CreatedBy;
+            entity.CreatedDate = existingEntity.CreatedDate;
+
+
+            _context.Entry(existingEntity).CurrentValues.SetValues(entity);
             await _context.SaveChangesAsync();
         }
     }

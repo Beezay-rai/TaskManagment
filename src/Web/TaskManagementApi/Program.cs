@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using Serilog.Core;
 using System.Text;
 using TaskManagementApi.Utilities;
 using TaskManagementApplication;
@@ -26,11 +28,20 @@ namespace TaskManagementApi
                 {
                     p.WithOrigins("http://localhost:8088")
                     .AllowAnyHeader()
-
                     .AllowAnyMethod();
                 });
                 options.DefaultPolicyName = "myClientApp";
             });
+
+            #region Logging Configure
+          
+            builder.Logging.ClearProviders();
+            builder.Logging.AddSerilog(new LoggerConfiguration()
+                .ReadFrom.Configuration(builder.Configuration)
+                .WriteTo.Console()
+                .CreateLogger()
+                );
+            #endregion
 
 
             #region Authentication
@@ -92,14 +103,16 @@ namespace TaskManagementApi
 
 
             var app = builder.Build();
+            app.Logger.LogInformation("App Initialized !");
 
             // Configure the HTTP request pipeline.
 
             app.UseSwagger();
             app.UseSwaggerUI();
 
-
-
+            
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseCors("myClientApp");
             app.UseAuthentication();

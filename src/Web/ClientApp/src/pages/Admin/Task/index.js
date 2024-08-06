@@ -27,7 +27,7 @@ export default function index() {
             </button>
           </a>
         </div>
-        <table className={adminStyle.table}>
+        <table className={adminStyle.adminDataTable}>
           <thead>
             <tr>
               <th>S.N</th>

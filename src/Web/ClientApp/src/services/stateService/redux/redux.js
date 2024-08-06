@@ -11,7 +11,7 @@ import {
 } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-
+import Cookies from "js-cookie";
 //#region Application Initial States
 const initialApplicationState = {
   isLoading: false,
@@ -83,6 +83,7 @@ export const { setUserState, resetState } = userSlice.actions;
 export const { setIsLoading } = appSlice.actions;
 export const persistor = persistStore(store);
 export const resetAllState = () => (state, action) => {
+  Cookies.remove("auth_token");
   state = undefined;
 };
 

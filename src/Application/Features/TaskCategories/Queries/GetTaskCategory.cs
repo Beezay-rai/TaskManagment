@@ -14,11 +14,10 @@ namespace TaskManagementApplication.Features.TaskCategories.Queries
     public class GetTaskCategoryByIdCommandHandler : IRequestHandler<GetTaskCategoryById, TaskCategoryDTO>
     {
         private readonly ITaskCategoryRepository _repo;
-
         private readonly IMapper _mapper;
-        public GetTaskCategoryByIdCommandHandler(ITaskCategoryRepository repo,IMapper mapper)
+        public GetTaskCategoryByIdCommandHandler(ITaskCategoryRepository repo, IMapper mapper)
         {
-            _mapper = mapper;   
+            _mapper = mapper;
             _repo = repo;
         }
 

@@ -8,8 +8,11 @@ namespace TaskManagementApplication.Services.AutoMapperProfile
     {
         public MappingProfile()
         {
+            #region TaskCategory Profiles
             CreateMap<TaskCategory, TaskCategoryDTO>().ReverseMap(); 
-            CreateMap<TaskCategory,CreateTaskCategoryDTO >().ReverseMap(); 
+            CreateMap<TaskCategory,CreateTaskCategoryDTO >().ReverseMap();
+            CreateMap<TaskCategory,EditTaskCategoryDTO >().ReverseMap();
+            #endregion
             CreateMap<TaskEntity, TaskEntityDTO>().ReverseMap();
             CreateMap<TaskEntity, CreateTaskEntityDTO>().ReverseMap(); 
             CreateMap<TaskAssignment, CreateTaskAssignmentDTO>().ReverseMap(); 
