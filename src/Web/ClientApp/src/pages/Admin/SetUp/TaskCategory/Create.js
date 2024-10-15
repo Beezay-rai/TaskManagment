@@ -27,9 +27,8 @@ export default function Create() {
       if (response.status) {
         toast.success("Success !");
         router.push("./");
-      }
-      else{
-        toast.error("Error occured !")
+      } else {
+        toast.error("Error occured !");
       }
     } catch {
       toast.error("Something Went Wrong !");
@@ -40,29 +39,38 @@ export default function Create() {
 
   return (
     <>
-      <div className="formCover bg-white shadow-md p-5 m-2 rounded-md">
+      <div className="formCover ">
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="mb-5">
+            <h1 className="font-bold text-xl">+ Add Task Category </h1>
+          </div>
           <div className="formBody">
-            <div className="row">
-              <div className="col-span-2 ">
-                <div className={adminStyle.inputGroup}>
-                  <label>Name</label>
-                  <input placeholder="Name" name="name" {...register("name")} />
-                  <ErrorMessage
-                    errors={errors}
-                    name="name"
-                    as="span"
-                    className={adminStyle.error}
-                  />
-                </div>
+            <div className={adminStyle.row}>
+              <div className={adminStyle.inputGroup}>
+                <label className={adminStyle.formLabel}>Name</label>
+                <input
+                  className={adminStyle.formInput}
+                  placeholder="Name"
+                  {...register("name")}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name="name"
+                  as="span"
+                  className={adminStyle.error}
+                />
               </div>
             </div>
           </div>
-          <div className="btn-group ">
+          <div className="btn-group mt-6 ">
             <button type="submit" className="btn btn-success">
               Save
             </button>
-     
+            <a href="./">
+              <button type="button" className="btn btn-danger">
+                Cancel
+              </button>
+            </a>
           </div>
         </form>
       </div>

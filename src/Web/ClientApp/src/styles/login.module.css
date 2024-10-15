@@ -1,11 +1,18 @@
 .input {
     padding: 10px;
     width: 100%;
-    @apply   outline-blue-500 rounded-md  
+    @apply    rounded-md  outline-blue-400  border border-teal-200 outline-1
 }
 
-.inputGroup {
 
+.errorInput {
+    padding: 10px;
+    width: 100%;
+    @apply    rounded-md  outline-red-400  border border-red-200 outline-1
+}
+
+
+.inputGroup {
     padding: 10px;
 }
 
@@ -47,3 +54,6 @@
 
 
 
+.loginCard{
+    @apply flex  justify-center flex-col   bg-white  p-5 border-gray-400  border border-y-0  rounded-3xl backdrop-blur-md  md:w-1/4 md:h-fit sm:w-fit sm:h-full
+}

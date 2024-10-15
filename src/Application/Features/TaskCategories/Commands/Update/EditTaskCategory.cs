@@ -2,7 +2,7 @@
 using MediatR;
 using TaskManagement.Domain.Entities;
 using TaskManagementApplication.Common;
-using TaskManagementApplication.DTOs;
+using TaskManagementApplication.DTOs.TaskCategory;
 using TaskManagementApplication.Exception;
 using TaskManagementApplication.Interfaces;
 

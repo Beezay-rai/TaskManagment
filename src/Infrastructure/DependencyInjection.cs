@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TaskManagementApplication.Interfaces;
 using TaskManagementApplication.Models;
+using TaskManagementApplication.Services;
 using TaskManagementInfrastructure.Data;
 using TaskManagementInfrastructure.Data.Identity;
 using TaskManagementInfrastructure.Library;
@@ -57,7 +58,8 @@ namespace TaskManagementInfrastructure
             services.AddTransient<ITaskCategoryRepository, TaskCategoryRepository>();
             services.AddTransient<ITaskEntityRepository, TaskEntityRepository>();
             services.AddTransient<IAuthenticateRepository, AuthenticateRepository>();
-            services.AddTransient<ITaskAssignment, TaskAssignmentRepository>();
+            services.AddTransient<ITaskAssignmentRepository, TaskAssignmentRepository>();
+            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
             #endregion
             //Email Service Registration
             services.Configure<EmailSettingModel>(options => configuration.Bind("EmailSettings", new EmailSettingModel()));

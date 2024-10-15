@@ -10,7 +10,7 @@ using TaskManagementInfrastructure.Data;
 
 namespace TaskManagementInfrastructure.Repository
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseAuditableEntity
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly ApplicationDbContext _context;
 
@@ -50,16 +50,11 @@ namespace TaskManagementInfrastructure.Repository
 
         public async Task Update(T entity)
         {
-            var existingEntity = await _context.Set<T>().FindAsync(entity.Id);
+            var existingEntity = await _context.Set<T>().FindAsync(entity);
             if (existingEntity == null)
             {
                 throw new InvalidOperationException("Entity not found.");
             }
-
-            // Preserve the CreatedBy and CreatedDate fields
-            entity.CreatedBy = existingEntity.CreatedBy;
-            entity.CreatedDate = existingEntity.CreatedDate;
-
 
             _context.Entry(existingEntity).CurrentValues.SetValues(entity);
             await _context.SaveChangesAsync();

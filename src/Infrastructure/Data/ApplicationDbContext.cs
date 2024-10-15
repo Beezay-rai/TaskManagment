@@ -45,5 +45,6 @@ namespace TaskManagementInfrastructure.Data
         public DbSet<TaskEntity> TaskEntity { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
+        public DbSet<TaskAssignment> TaskAssignment { get; set; }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using TaskManagement.Domain.Entities;
-using TaskManagementApplication.DTOs;
+using TaskManagementApplication.DTOs.TaskAssignment;
+using TaskManagementApplication.DTOs.TaskCategory;
+using TaskManagementApplication.DTOs.TaskEntity;
 
 namespace TaskManagementApplication.Services.AutoMapperProfile
 {
@@ -13,9 +15,13 @@ namespace TaskManagementApplication.Services.AutoMapperProfile
             CreateMap<TaskCategory,CreateTaskCategoryDTO >().ReverseMap();
             CreateMap<TaskCategory,EditTaskCategoryDTO >().ReverseMap();
             #endregion
+
             CreateMap<TaskEntity, TaskEntityDTO>().ReverseMap();
             CreateMap<TaskEntity, CreateTaskEntityDTO>().ReverseMap(); 
+
+
             CreateMap<TaskAssignment, CreateTaskAssignmentDTO>().ReverseMap(); 
+            CreateMap<TaskAssignment, TaskAssignmentDTO>().ReverseMap(); 
         }
     }
 }

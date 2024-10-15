@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagementApplication.DTOs;
+using TaskManagementApplication.DTOs.TaskCategory;
 using TaskManagementApplication.Features.TaskCategories.Commands.Create;
 using TaskManagementApplication.Features.TaskCategories.Commands.Delete;
 using TaskManagementApplication.Features.TaskCategories.Commands.Edit;

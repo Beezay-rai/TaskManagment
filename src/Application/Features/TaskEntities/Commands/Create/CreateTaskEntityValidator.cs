@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using TaskManagementApplication.DTOs;
+using TaskManagementApplication.DTOs.TaskEntity;
 
 namespace TaskManagementApplication.Features.TaskEntities.Commands.Create
 {

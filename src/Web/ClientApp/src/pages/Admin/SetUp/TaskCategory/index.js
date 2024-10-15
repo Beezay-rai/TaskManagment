@@ -10,117 +10,129 @@ import store, {
   setIsLoading,
 } from "../../../../services/stateService/redux/redux";
 import Pagination from "../../../../components/Utilities/pagination";
-import Link from "next/link";
-import MyModal from "../../../../components/Utilities/modal";
 
-export default function index() {
+import MyModal from "../../../../components/Utilities/modal";
+import { PuffLoader } from "react-spinners";
+
+import MenuIcon from "@mui/icons-material/Menu";
+import CollapseItem from "../../../../components/Utilities/collapseItem";
+import DataTable from "../../../../components/Utilities/dataTable";
+
+export default function Index() {
   const router = useRouter();
   const dispatch = useDispatch();
-  const [taskList, setTaskList] = useState([]);
+  const [taskCategoryList, setTaskCategoryList] = useState([]);
   const appState = store.getState().application;
 
-  useEffect( () => {
-    dispatch(setIsLoading(true));
-    var data = fetchData().then((response)=>{
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    const fetchData = async () => {
+      try {
+        const data = await taskCategoryService();
 
-      setTaskList(response);
-    })
-    dispatch(setIsLoading(false));
-  }, [router]);
+        setTaskCategoryList(data);
+      } catch (error) {
+        console.error("Failed to fetch tasks:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [dispatch]);
 
 
-  const fetchData = async()=>{
-    var data =await taskCategoryService();
-    return data;
-  }
+  const [open, setOpen] = useState(false);
 
+  const handleModal = () => setOpen(!open);
 
-  //Pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemPerPage, setItemPerPage] = useState(10);
+  const [openIndex, setOpenIndex] = useState(false);
+  const handleAction = (index) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index)); // Toggle open/close
+  };
 
-  const currentItems = taskList;
-  const paginate = (currentPage) => setCurrentPage(currentPage);
+  const columns = [
+    { header: "Id", accessor: "id" },
+    { header: "Name", accessor: "name" },
+    // { header: 'Action', accessor: 'action' },
+  ];
+  const addtionalHeading = () => {
+    return <th>Action</th>;
+  };
 
-  const headers = ["Id", "Name"];
+  const additionalTd = (index, data, openIndex, handleAction) => (
+    <td>
+      <div className="action relative inline-block">
+        <button type="button" onClick={() => handleAction(index)}>
+          <MenuIcon className="text-blue-700 hover:text-blue-300" />
+        </button>
 
-  const [open,setOpen]=useState(false);
-
-  const handleModal=()=>setOpen(!open);
+        <CollapseItem state={openIndex === index}>
+          <ul className="py-3 absolute border rounded-md shadow-md bg-white top-3 right-8 w-44 box-decoration-slice">
+            <li className="hover:bg-slate-300 px-4 py-3 w-full">
+              <a
+                href={`TaskCategory/edit/${data.id}`}
+                title="Edit"
+                className="flex font-semibold font-sans px-7"
+              >
+                <BorderColorOutlinedIcon className="size-5" />
+                Edit
+              </a>
+            </li>
+            <li className="hover:bg-slate-300 px-4 py-3 w-full">
+              <a
+                href="Detail"
+                title="Detail"
+                className="flex font-semibold font-sans px-7 text-blue-400"
+              >
+                <VisibilityOutlinedIcon className="size-5" />
+                View
+              </a>
+            </li>
+            <li className="hover:bg-slate-300 px-4 py-3 w-full">
+              <a
+                href="Delete"
+                title="Delete"
+                className="flex font-semibold font-sans px-7 text-red-400"
+              >
+                <DeleteOutlineOutlinedIcon className="size-5" />
+                Delete
+              </a>
+            </li>
+          </ul>
+        </CollapseItem>
+      </div>
+    </td>
+  );
 
   return (
     <>
-    <MyModal open={open}  >
-      <h1>My custom Modal</h1>
-    </MyModal>
-      <div className={adminStyle.tableCover}>
-        <div className="additional flex justify-between p-2">
+      <p className="route text-blue-600 py-2 border px-3 mb-1 rounded-md">
+        {router.pathname}
+      </p>
+      <MyModal open={open}>
+        <h1>My custom Modal</h1>
+      </MyModal>
+      <div className={`${adminStyle.tableCover} md:h-[800px] lg:h-[800px] `}>
+        <div className="additional flex justify-between p-2 pb-4 ">
           <section>
-            <h4 className="font-bold text-lg">Tasks</h4>
-            <p className="route text-blue-600">{router.pathname}</p>
+            <h4 className="font-bold text-lg">Task Categories</h4>
           </section>
 
-          <a href="TaskCategory/Create">
+          <a href="TaskCategory/create">
             <button type="button" className="btn btn-primary ">
               + Add
             </button>
           </a>
         </div>
 
-        {/* <DataTable headers={headers}>
-what is this
-        </DataTable> */}
-
-        <table className={adminStyle.adminDataTable}>
-          <thead>
-            <tr>
-              <th width="10%">S.N</th>
-              <th>Id</th>
-              <th>Title</th>
-
-              <th>Action</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {currentItems.length > 0 ? (
-              currentItems.map((data, index) => {
-                return (
-                  <tr key={index}>
-                    <td width="10%">{index + 1}</td>
-                    <td>{data.id}</td>
-                    <td>{data.name}</td>
-
-                    <td>
-                      <a href={`TaskCategory/Edit/${data.id}`} title="Edit">
-                        <BorderColorOutlinedIcon className="size-5 text-green-400" />
-                      </a>
-                      <a href="Detail" title="Detail">
-                        <VisibilityOutlinedIcon className="size-5 text-blue-400" />
-                      </a>
-                      <button onClick={handleModal}>Delete</button>
-                      <a href="Delete" title="Delete">
-                        <DeleteOutlineOutlinedIcon className="size-5 text-red-400" />
-                      </a>
-                    </td>
-                  </tr>
-                );
-              })
-            ) : appState.isLoading ? (
-              <tr>
-                <td colSpan="5">Loading.... </td>
-              </tr>
-            ) : (
-              <tr>
-                <td colSpan="5">No Data</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-        <Pagination
-          totalItems={taskList.length}
-          itemsPerPage={itemPerPage}
-          paginate={paginate}
+        <DataTable
+          columns={columns}
+          data={taskCategoryList}
+          additionalData={(index, row) =>
+            additionalTd(index, row, openIndex, handleAction)
+          }
+          addtionalHeading={addtionalHeading}
         />
       </div>
     </>

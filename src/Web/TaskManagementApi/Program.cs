@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Core;
 using System.Text;
+using TaskManagementApi.Library.ChatHub;
 using TaskManagementApi.Utilities;
 using TaskManagementApplication;
 using TaskManagementInfrastructure;
@@ -18,16 +19,18 @@ namespace TaskManagementApi
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
             builder.Services.AddApplicationServices()
                             .AddInfrastructure(builder.Configuration);
+
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("myClientApp", p =>
                 {
                     p.WithOrigins("http://localhost:8088")
                     .AllowAnyHeader()
+                    .AllowCredentials()
                     .AllowAnyMethod();
                 });
                 options.DefaultPolicyName = "myClientApp";
@@ -39,6 +42,7 @@ namespace TaskManagementApi
             builder.Logging.AddSerilog(new LoggerConfiguration()
                 .ReadFrom.Configuration(builder.Configuration)
                 .WriteTo.Console()
+                .WriteTo.File("Logs/logs-.txt",rollingInterval:RollingInterval.Day)
                 .CreateLogger()
                 );
             #endregion
@@ -60,12 +64,11 @@ namespace TaskManagementApi
                     ValidIssuer = builder.Configuration["JWTConfig:ValidIssuer"],
                     ValidateIssuer = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTConfig:SecretKey"])),
-                    ValidateIssuerSigningKey = true
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime= true
                 };
 
             });
-
-
 
             builder.Services.AddAuthorization();
             #endregion
@@ -73,7 +76,9 @@ namespace TaskManagementApi
 
             #region Api Services Registration
             builder.Services.AddSingleton<IUtility, TaskManagementApi.Utilities.Utility>();
+            builder.Services.AddSignalR();
             #endregion
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
             builder.Services.AddSwaggerGen(options =>
             {
@@ -99,7 +104,6 @@ namespace TaskManagementApi
                     }
                 });
             });
-            builder.Services.AddEndpointsApiExplorer();
 
 
             var app = builder.Build();
@@ -110,15 +114,20 @@ namespace TaskManagementApi
             app.UseSwagger();
             app.UseSwaggerUI();
 
-            
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseHttpsRedirection();
             app.UseCors("myClientApp");
+            app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
+            app.MapHub<ChatHub>("/chatHub");
+
+          
 
 
+         
             app.MapControllers();
             app.MapAreaControllerRoute(
                   name: "areas",

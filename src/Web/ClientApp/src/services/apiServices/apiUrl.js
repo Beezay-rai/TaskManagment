@@ -9,6 +9,29 @@ const apiUrls = {
       url: "/SignUp",
     }
   },
+  
+  task: {
+    task: {
+      method: "GET",
+      url: "/GetAllTaskEntity",
+    },
+    createTask: {
+      method: "POST",
+      url: "/CreateTask",
+    },
+    editTask: {
+      method: "PUT",
+      url: "/EditTask",
+    },
+    deleteTask: {
+      method: "DELETE",
+      url: "/DeleteTask",
+    },
+    taskById: {
+      method: "GET",
+      url: "/GetTaskById",
+    },
+  },
 
   taskCategory: {
     taskCategory: {

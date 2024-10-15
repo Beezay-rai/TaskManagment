@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using TaskManagementApplication.DTOs;
+using TaskManagementApplication.DTOs.TaskEntity;
 using TaskManagementApplication.Interfaces;
 
 namespace TaskManagementApplication.Features.TaskEntities.Queries

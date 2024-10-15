@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementApi.Utilities;
+using TaskManagementApplication.Common;
 using TaskManagementApplication.Features.Authenticate.Commands;
 using TaskManagementApplication.Models;
 
@@ -23,16 +24,13 @@ namespace TaskManagementApi.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginAsync(LoginModel model)
         {
-            var response = await _mediator.Send(new LoginCommand() { LoginModel = model });
-            if (response.Status)
+            var (code,response) = await _mediator.Send(new LoginCommand() { LoginModel = model });
+            if(response is LoginResponseModel loginResponse)
             {
-
-                response.Data["Token"] = _utility.GenerateToken(response.Data);
+                loginResponse.Data["Token"] = _utility.GenerateToken(loginResponse.Data);
             }
-            
-          
 
-            return Ok(response);
+            return StatusCode(code, response);
         }
         [HttpPost]
         public IActionResult SignUp(SignUpModel model)

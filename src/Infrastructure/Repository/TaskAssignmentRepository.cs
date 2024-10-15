@@ -5,34 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskManagement.Domain.Entities;
 using TaskManagementApplication.Interfaces;
+using TaskManagementInfrastructure.Data;
 
 namespace TaskManagementInfrastructure.Repository
 {
-    public class TaskAssignmentRepository : ITaskAssignment
+    public class TaskAssignmentRepository : GenericRepository<TaskAssignment>, ITaskAssignmentRepository
     {
-        public Task<TaskAssignment> Create(TaskAssignment enitity)
+        public TaskAssignmentRepository(ApplicationDbContext context) : base(context)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<TaskAssignment>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<TaskAssignment> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(TaskAssignment enitity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

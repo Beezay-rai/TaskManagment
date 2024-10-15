@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TaskManagementApplication.Interfaces;
 using TaskManagementApplication.Models;
+using TaskManagementApplication.Services;
 
 namespace TaskManagementInfrastructure.Services
 {

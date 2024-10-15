@@ -4,7 +4,7 @@ import SideBar from "./sideBar";
 
 export default function AdminLayout({ children }) {
   return (
-    <div className="layout bg-slate-100 flex h-screen w-full ">
+    <div className="layout overflow-hidden min-h-fit bg-slate-100 flex  w-full ">
       <SideBar />
       <main className={adminStyle.main}>
         <NavBar />

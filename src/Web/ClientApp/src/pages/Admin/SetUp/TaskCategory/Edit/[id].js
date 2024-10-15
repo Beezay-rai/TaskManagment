@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import adminStyle from "../../../../../styles/Admin/style.module.css";
 import { useForm } from "react-hook-form";
 import { setIsLoading } from "../../../../../services/stateService/redux/redux";
-import LinkButton from "../../../../../components/common/linkButton";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ErrorMessage } from "@hookform/error-message";
 import * as yup from "yup";
@@ -45,7 +44,9 @@ export default function Edit() {
     };
 
     fetchData();
-  }, [id]);
+  }, [dispatch,id]);
+
+
   const onSubmit = async (data) => {
     data.id=id;
     dispatch(setIsLoading(true));
@@ -53,7 +54,7 @@ export default function Edit() {
       let response = await updateTaskCategoryService(data);
       if (response.status) {
         toast.success("Success !");
-        router.push("./");
+        router.push("../");
       } else {
         toast.error("Error occured !");
       }
@@ -66,18 +67,24 @@ export default function Edit() {
 
   return (
     <>
-      <div className="formCover bg-white shadow-md p-5 m-2 rounded-md">
+          <p className="route text-blue-600 py-2 border px-3 mb-1 rounded-md">
+        {router.pathname.replace("[id]",id) }
+      </p>
+      <div className="formCover">
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="mb-5">
+            <h1 className="font-bold text-xl">+Edit Task Category </h1>
+          </div>
           <div className="formBody">
             <div className="row">
               <div className="col-span-2 ">
                 <div className={adminStyle.inputGroup}>
-                  <label>Name</label>
+                <label className={adminStyle.formLabel}>Name</label>
                   <input
+                    className={adminStyle.formInput}
                     placeholder="Name"
-                    name="name"
-                    {...register("name")}
                     defaultValue={apiData?.name}
+                    {...register("name")}
                   />
                   <ErrorMessage
                     errors={errors}
@@ -89,16 +96,15 @@ export default function Edit() {
               </div>
             </div>
           </div>
-          <div className="btn-group ">
+          <div className="btn-group mt-6 ">
             <button type="submit" className="btn btn-success">
               Save
             </button>
-            <LinkButton
-              className={"btn btn-primary"}
-              content={"Cancel"}
-              url={"./../"}
-              type={"button"}
-            />
+            <a href="../">
+              <button type="button" className="btn btn-danger">
+                Cancel
+              </button>
+            </a>
           </div>
         </form>
       </div>

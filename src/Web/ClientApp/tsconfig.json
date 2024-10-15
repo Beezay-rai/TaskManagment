@@ -30,7 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/app/auth/login.jsx"
-, "src/middleware.js", "src/schemas/schema.js"  ],
+, "src/middleware.js", "src/schemas/schema.js", "src/components/Utilities/collapseItem.js"  ],
   "exclude": [
     "node_modules"
   ]

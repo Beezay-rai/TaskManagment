@@ -1,13 +1,8 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TaskManagementApplication.Common
+﻿namespace TaskManagementApplication.Common
 {
     public class ErrorResponseModel
     {
+        public bool Status { get; set; }
         public string Message { get; set; }
         public List<string> ErrorDescription { get; set; }
     }
@@ -16,7 +11,10 @@ namespace TaskManagementApplication.Common
     {
         public bool Status { get; set; }
         public string Message { get; set; }
+        public object Data { get; set; }
     }
+
+
 
     public class LoginResponseModel
     {
@@ -24,4 +22,6 @@ namespace TaskManagementApplication.Common
         public string Message { get; set; }
         public Dictionary<string, object> Data { get; set; } = new Dictionary<string, object>();
     }
+
+
 }

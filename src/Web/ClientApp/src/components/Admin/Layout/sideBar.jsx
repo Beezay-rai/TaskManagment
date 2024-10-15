@@ -9,6 +9,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { getuid } from "process";
+import Image from 'next/image';
 
 const menu = [
   {
@@ -65,13 +66,12 @@ const SideBar = () => {
     <div className={adminStyle.sideBar}>
       {/* Logo of Application */}
       <div className="logo p-5 ">
-        <img
-          src={logo.src}
+      <Image  src={logo.src}
           height="32"
           width="90"
           className="rounded-full"
-          alt="Logo"
-        ></img>
+          alt="Logo" />
+      
       </div>
 
       <div className={adminStyle.sideBarMenu}>

@@ -1,17 +1,17 @@
 .navBar {
 
-    @apply bg-white m-2 shadow-sm drop-shadow-md transition-shadow h-20 p-5 flex rounded-lg justify-between;
+    @apply bg-white mb-2  shadow-sm drop-shadow-md transition-shadow h-20 p-5 flex rounded-lg justify-between;
 }
 
 .main {
-    @apply bg-slate-100 flex-grow w-full
+    @apply bg-slate-100 flex-grow w-full p-3 h-full
 }
 
 .sideBar {
-    @apply bg-slate-700 w-2/12 flex flex-col h-full m-2 rounded-lg;
-    @apply sm:hidden w-0; 
-    @apply md:w-2/12 md:block ;
-    @apply lg:w-2/12 lg:block;
+    @apply bg-slate-700 w-2/12 flex flex-col h-screen rounded-lg;
+    @apply sm:hidden w-0 m-0; 
+    @apply md:w-2/12 md:block m-2;
+    @apply lg:w-2/12 lg:block m-2;
 
 }
 
@@ -30,29 +30,35 @@
 
 /* Admin Table */
 .tableCover {
-    @apply bg-white p-5 m-2 rounded-md shadow-md 
+    @apply bg-white p-5  rounded-md shadow-md 
 }
-
-
-
-
 
 /* End Admin Table */
 
 
 /* Form Styling */
-.inputGroup input {
-    @apply rounded-md border border-slate-400 outline-none px-5 py-3 focus:border-blue-700
+
+
+.formInput{
+    @apply rounded-md border border-slate-400 outline-none px-5 py-3 focus:border-blue-700 w-52
 }
 
-.inputGroup select {
-    @apply rounded-md border border-slate-400 outline-none px-5 py-3 focus:border-blue-700 w-full
-}
 
-
-.inputGroup label {
+.formLabel{
     @apply font-medium text-sm block font-sans size-4 mb-3 w-full
 }
+.formSelect{
+    @apply rounded-md border border-slate-400 outline-none px-5 py-3 focus:border-blue-700 w-52
+
+}
+.formSelect option{
+    @apply  size-2  
+}
+
+
+
+
+
 
 
 .sideBarMenu {
@@ -84,19 +90,14 @@
 
 
 
-
-
-
-
-
 .adminDataTable thead {
     @apply bg-slate-100 border border-slate-200;
 }
 
 .adminDataTable tbody{
     display: block;
-    height: 200px;
     width: 100%;
+    @apply md:h-[500px] overflow-auto
 }
 
 
@@ -139,4 +140,5 @@
     display: flex;
     gap: 20px;
     flex-direction: row;
+    flex-wrap: wrap;
 }

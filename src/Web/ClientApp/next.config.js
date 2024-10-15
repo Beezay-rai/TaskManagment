@@ -5,7 +5,6 @@ const nextconfig = {
   devIndicators: {
     buildActivity: false,
     
-    
   },
 };
 
