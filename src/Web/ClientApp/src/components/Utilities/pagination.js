@@ -15,7 +15,12 @@ export const Pagination = ({
   return (
     <nav className="mt-5">
       <ul className="pagination">
-        <li className="page-item">
+        <li
+          className="page-item"
+          onClick={() =>
+            pageNumbers.includes(currentPage - 1) && paginate(currentPage - 1)
+          }
+        >
           <ChevronLeftIcon />
         </li>
         {pageNumbers.map((number) => (
@@ -28,7 +33,12 @@ export const Pagination = ({
           </li>
         ))}
 
-        <li className="page-item">
+        <li
+          className="page-item"
+          onClick={() =>
+            pageNumbers.includes(currentPage + 1) && paginate(currentPage + 1)
+          }
+        >
           <ChevronRightIcon />
         </li>
       </ul>
