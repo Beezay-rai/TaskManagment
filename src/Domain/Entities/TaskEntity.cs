@@ -4,7 +4,7 @@ using TaskManagement.Domain.Enums;
 
 namespace TaskManagement.Domain.Entities
 {
-    public class TaskEntity: BaseAuditableEntity
+    public sealed class TaskEntity: BaseAuditableEntity
     {
         public string Name { get; set; }
         public int TaskCategoryId { get; set; }

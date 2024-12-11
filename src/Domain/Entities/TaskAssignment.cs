@@ -7,7 +7,7 @@ using TaskManagement.Domain.Common;
 
 namespace TaskManagement.Domain.Entities
 {
-    public class TaskAssignment:BaseAuditableEntity
+    public sealed class TaskAssignment:BaseAuditableEntity
     {
         public int UserId { get; set; }
         public DateTime DueDate { get; set; }   

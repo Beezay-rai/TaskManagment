@@ -10,11 +10,7 @@ src/Web/TaskManagementApi/obj
 src/Web/ClientApp/node_modules
 src/Web/ClientApp/.next
 /Database.png
-/FunctionalRequirement (1).png
-/FunctionalRequirement (2).png
-/FunctionalRequirement (3).png
-/FunctionalRequirement (4).png
-/FunctionalRequirement (1).png
+
 /src/Web/SystemTesting/bin/Debug/net7.0
 /src/Web/SystemTesting/obj
 /src/Web/TaskManagementApi/Logs

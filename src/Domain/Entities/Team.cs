@@ -7,7 +7,7 @@ using TaskManagement.Domain.Common;
 
 namespace TaskManagement.Domain.Entities
 {
-    public class Team:BaseAuditableEntity
+    public sealed class Team:BaseAuditableEntity
     {
         public string Name { get; set; }    
         public int? DepartmentId { get;set; }

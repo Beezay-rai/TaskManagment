@@ -2,8 +2,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import store from "../stateService/redux/redux";
 
-const baseUrl = "https://localhost:8001/api";
-// const baseUrl = "https://localhost:7131/api"; 
+// const baseUrl = "https://localhost:8001/api";
+const baseUrl = "https://localhost:7131/api"; 
 
 export const baseEndpointurls = {
   taskCategoryUrl: `${baseUrl}/Admin/TaskCategory`,

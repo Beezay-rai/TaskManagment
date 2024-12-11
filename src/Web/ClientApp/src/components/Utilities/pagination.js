@@ -36,7 +36,7 @@ export const Pagination = ({
         <li
           className="page-item"
           onClick={() =>
-            pageNumbers.includes(currentPage + 1) && paginate(currentPage + 1)
+            pageNumbers.includes(currentPage + 1) && paginate(currentPage + 1)  `1345 `
           }
         >
           <ChevronRightIcon />

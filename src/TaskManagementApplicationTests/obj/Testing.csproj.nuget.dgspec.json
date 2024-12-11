@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\TaskManagementApplicationTests.csproj": {}
+    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\Testing.csproj": {}
   },
   "projects": {
     "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\Application\\Application.csproj": {
@@ -144,12 +144,12 @@
         }
       }
     },
-    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\TaskManagementApplicationTests.csproj": {
+    "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\TaskManagementApplicationTests.csproj",
-        "projectName": "TaskManagementApplicationTests",
-        "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\TaskManagementApplicationTests.csproj",
+        "projectUniqueName": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\Testing.csproj",
+        "projectName": "Testing",
+        "projectPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\Testing.csproj",
         "packagesPath": "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\OnePoint-bijay\\Desktop\\Projects\\MyProjects\\TaskManagmentSys\\src\\TaskManagementApplicationTests\\obj\\",
         "projectStyle": "PackageReference",

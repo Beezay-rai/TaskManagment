@@ -7,7 +7,7 @@ using TaskManagement.Domain.Common;
 
 namespace TaskManagement.Domain.Entities
 {
-    public class User:BaseAuditableEntity
+    public sealed class User:BaseAuditableEntity
     {
         public string Name { get; set; }
 

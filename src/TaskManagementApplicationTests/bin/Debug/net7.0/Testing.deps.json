@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "TaskManagementApplicationTests/1.0.0": {
+      "Testing/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
           "MSTest.TestAdapter": "3.1.1",
@@ -17,7 +17,7 @@
           "TaskManagement.Domain.Reference": "1.0.0.0"
         },
         "runtime": {
-          "TaskManagementApplicationTests.dll": {}
+          "Testing.dll": {}
         }
       },
       "AutoMapper/12.0.0": {
@@ -491,7 +491,7 @@
     }
   },
   "libraries": {
-    "TaskManagementApplicationTests/1.0.0": {
+    "Testing/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
