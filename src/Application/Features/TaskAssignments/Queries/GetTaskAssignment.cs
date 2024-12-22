@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using TaskManagement.Domain.Entities;
 using TaskManagementApplication.Common;
 using TaskManagementApplication.DTOs.TaskAssignment;
 using TaskManagementApplication.Interfaces;
@@ -15,9 +16,9 @@ namespace TaskManagementApplication.Features.TaskAssignments.Queries
 
     public class GetTaskAssignmentByIdCommandHandler : IRequestHandler<GetTaskAssignmentById, (int HttpStatusCode, object data)>
     {
-        private readonly ITaskAssignmentRepository _repo;
+        private readonly IGenericRepository<TaskAssignment> _repo;
         private readonly IMapper _mapper;
-        public GetTaskAssignmentByIdCommandHandler(ITaskAssignmentRepository repo, IMapper mapper)
+        public GetTaskAssignmentByIdCommandHandler(IGenericRepository<TaskAssignment> repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
@@ -27,7 +28,7 @@ namespace TaskManagementApplication.Features.TaskAssignments.Queries
         {
             try
             {
-                var data = await _repo.GetById(request.Id);
+                var data = await _repo.GetByIdAsync(request.Id);
                 if (data != null)
                 {
 
@@ -65,9 +66,9 @@ namespace TaskManagementApplication.Features.TaskAssignments.Queries
     public class GetTaskAssignmentListCommandHandler : IRequestHandler<GetTaskAssignmentList, List<TaskAssignmentDTO>>
     {
         private readonly IMapper _mapper;
-        private readonly ITaskAssignmentRepository _repo;
+        private readonly IGenericRepository<TaskAssignment> _repo;
 
-        public GetTaskAssignmentListCommandHandler(ITaskAssignmentRepository repo, IMapper mapper)
+        public GetTaskAssignmentListCommandHandler(IGenericRepository<TaskAssignment> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
@@ -76,7 +77,7 @@ namespace TaskManagementApplication.Features.TaskAssignments.Queries
 
         public async Task<List<TaskAssignmentDTO>> Handle(GetTaskAssignmentList request, CancellationToken cancellationToken)
         {
-            var data = await _repo.GetAll();
+            var data = await _repo.GetAllAsync();
             var returndata = _mapper.Map<List<TaskAssignmentDTO>>(data);
 
             return returndata;

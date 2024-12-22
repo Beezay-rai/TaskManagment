@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TaskManagement.Domain.Common;
 using TaskManagementApplication.Interfaces;
@@ -16,47 +14,57 @@ namespace TaskManagementInfrastructure.Repository
 
         public GenericRepository(ApplicationDbContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<T> Create(T enitity)
+        public async Task<List<T>> GetAllAsync()
         {
-            await _context.Set<T>().AddAsync(enitity);
-            await _context.SaveChangesAsync();
-            return enitity;
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            var data=await _context.Set<T>().FindAsync(id);
-            if (data != null)
+            return await _context.Set<T>().FindAsync(id);
+        }
+
+        public async Task<T> CreateAsync(T entity)
+        {
+            if (entity == null)
             {
-                _context.Remove(data);
-                await _context.SaveChangesAsync();
+                throw new ArgumentNullException(nameof(entity));
             }
+
+            await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return entity;
         }
 
-        public async Task<List<T>> GetAll()
+        public async Task UpdateAsync(T entity)
         {
-            var data = await _context.Set<T>().ToListAsync();
-            return data;
-        }
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
 
-        public async Task<T> GetById(int id)
-        {
-            var data = await _context.Set<T>().FindAsync(id);
-            return data;
-        }
-
-        public async Task Update(T entity)
-        {
-            var existingEntity = await _context.Set<T>().FindAsync(entity);
+            var existingEntity = await _context.Set<T>().FindAsync(_context.Entry(entity).Property("Id").CurrentValue);
             if (existingEntity == null)
             {
                 throw new InvalidOperationException("Entity not found.");
             }
 
             _context.Entry(existingEntity).CurrentValues.SetValues(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var entity = await _context.Set<T>().FindAsync(id);
+            if (entity == null)
+            {
+                throw new InvalidOperationException($"Entity with id {id} not found.");
+            }
+
+            _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using TaskManagement.Domain.Entities;
 using TaskManagementApplication.DTOs.TaskEntity;
 using TaskManagementApplication.Interfaces;
 
@@ -10,10 +11,10 @@ namespace TaskManagementApplication.Features.TaskEntities.Queries
     }
     public class GetAllTaskEntityCommandHandler : IRequestHandler<GetAllTaskEntity, List<TaskEntityDTO>>
     {
-        private readonly ITaskEntityRepository _repo;
+        private readonly IGenericRepository<TaskEntity> _repo;
         private readonly IMapper _mapper;
 
-        public GetAllTaskEntityCommandHandler(ITaskEntityRepository repo, IMapper mapper)
+        public GetAllTaskEntityCommandHandler(IGenericRepository<TaskEntity> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
@@ -21,7 +22,7 @@ namespace TaskManagementApplication.Features.TaskEntities.Queries
 
         public async Task<List<TaskEntityDTO>> Handle(GetAllTaskEntity request, CancellationToken cancellationToken)
         {
-            var data = await _repo.GetAll();
+            var data = await _repo.GetAllAsync();
             return _mapper.Map<List<TaskEntityDTO>>(data);
         }
     }
@@ -31,10 +32,10 @@ namespace TaskManagementApplication.Features.TaskEntities.Queries
     }
     public class GetTaskEntityByIdCommandHandler : IRequestHandler<GetTaskEntityById, TaskEntityDTO>
     {
-        private readonly ITaskEntityRepository _repo;
+        private readonly IGenericRepository<TaskEntity> _repo;
         private readonly IMapper _mapper;
 
-        public GetTaskEntityByIdCommandHandler(ITaskEntityRepository repo, IMapper mapper)
+        public GetTaskEntityByIdCommandHandler(IGenericRepository<TaskEntity> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
@@ -42,7 +43,7 @@ namespace TaskManagementApplication.Features.TaskEntities.Queries
 
         public async Task<TaskEntityDTO> Handle(GetTaskEntityById request, CancellationToken cancellationToken)
         {
-            var data = await _repo.GetById(request.Id);
+            var data = await _repo.GetByIdAsync(request.Id);
             return _mapper.Map<TaskEntityDTO>(data);
         }
     }

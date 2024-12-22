@@ -15,10 +15,10 @@ namespace TaskManagementApplication.Features.TaskEntities.Commands.Create
 
     public class CreateTaskEntityCommandHandler : IRequestHandler<CreateTaskEntity, ResponseModel>
     {
-        private readonly ITaskEntityRepository _repo;
+        private readonly IGenericRepository<TaskEntity> _repo;
         private readonly IMapper _mapper;
 
-        public CreateTaskEntityCommandHandler(ITaskEntityRepository repo, IMapper mapper)
+        public CreateTaskEntityCommandHandler(IGenericRepository<TaskEntity> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
@@ -34,7 +34,7 @@ namespace TaskManagementApplication.Features.TaskEntities.Commands.Create
 
             var entity = _mapper.Map<TaskEntity>(request.CreateTaskEntityDTO);
             entity.CreatedBy = "Admin";
-            var createdEntity = await _repo.Create(entity);
+            var createdEntity = await _repo.CreateAsync(entity);
             response.Status = true;
             response.Message = "Created Succfully with Id : " + createdEntity.Id;
 

@@ -7,8 +7,8 @@ using TaskManagement.Domain.Common;
 
 namespace TaskManagement.Domain.Entities
 {
-    public sealed class TaskCategory:BaseAuditableEntity    
+    public sealed class TaskCategory:BaseEntity    
     {
-        public string Name { get; set; }
+        public string Name { get; init; }
     }
 }

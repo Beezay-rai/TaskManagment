@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Application.Behaviors;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,8 +10,12 @@ namespace TaskManagementApplication
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             var assembly = typeof(DependencyInjection).Assembly;
-            
-            services.AddMediatR(assembly);
+
+            services.AddMediatR(op =>
+            {
+                op.RegisterServicesFromAssemblies(assembly);
+                op.AddOpenBehavior(typeof(LoggerPipelineBehavior<,>));
+            });
             services.AddAutoMapper(assembly);
             services.AddValidatorsFromAssembly(assembly);
             

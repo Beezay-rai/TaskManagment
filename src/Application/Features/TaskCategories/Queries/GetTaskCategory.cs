@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using TaskManagement.Domain.Entities;
 using TaskManagementApplication.DTOs.TaskCategory;
 using TaskManagementApplication.Interfaces;
 
@@ -13,9 +14,9 @@ namespace TaskManagementApplication.Features.TaskCategories.Queries
 
     public class GetTaskCategoryByIdCommandHandler : IRequestHandler<GetTaskCategoryById, TaskCategoryDTO>
     {
-        private readonly ITaskCategoryRepository _repo;
+        private readonly IGenericRepository<TaskCategory> _repo;
         private readonly IMapper _mapper;
-        public GetTaskCategoryByIdCommandHandler(ITaskCategoryRepository repo, IMapper mapper)
+        public GetTaskCategoryByIdCommandHandler(IGenericRepository<TaskCategory> repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
@@ -25,7 +26,7 @@ namespace TaskManagementApplication.Features.TaskCategories.Queries
         {
             try
             {
-                var data = await _repo.GetById(request.Id);
+                var data = await _repo.GetByIdAsync(request.Id);
                 var returnData = _mapper.Map<TaskCategoryDTO>(data);
                 return returnData;
 
@@ -46,9 +47,9 @@ namespace TaskManagementApplication.Features.TaskCategories.Queries
     public class GetTaskCategoryListCommandHandler : IRequestHandler<GetTaskCategoryList, List<TaskCategoryDTO>>
     {
         private readonly IMapper _mapper;
-        private readonly ITaskCategoryRepository _repo;
+        private readonly IGenericRepository<TaskCategory> _repo;
 
-        public GetTaskCategoryListCommandHandler(ITaskCategoryRepository repo, IMapper mapper)
+        public GetTaskCategoryListCommandHandler(IGenericRepository<TaskCategory> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
@@ -57,7 +58,7 @@ namespace TaskManagementApplication.Features.TaskCategories.Queries
 
         public async Task<List<TaskCategoryDTO>> Handle(GetTaskCategoryList request, CancellationToken cancellationToken)
         {
-            var data = await _repo.GetAll();
+            var data = await _repo.GetAllAsync();
             var returndata = _mapper.Map<List<TaskCategoryDTO>>(data);
 
             return returndata;

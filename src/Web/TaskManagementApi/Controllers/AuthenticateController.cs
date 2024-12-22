@@ -8,7 +8,7 @@ using TaskManagementApplication.Models;
 
 namespace TaskManagementApi.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/v1/auth/")]
     [ApiController]
     [AllowAnonymous]
     public class AuthenticateController : ControllerBase
@@ -21,7 +21,7 @@ namespace TaskManagementApi.Controllers
             _utility = utility;
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> LoginAsync(LoginModel model)
         {
             var (code,response) = await _mediator.Send(new LoginCommand() { LoginModel = model });
@@ -32,7 +32,7 @@ namespace TaskManagementApi.Controllers
 
             return StatusCode(code, response);
         }
-        [HttpPost]
+        [HttpPost("signUp")]
         public IActionResult SignUp(SignUpModel model)
         {
             var response = _mediator.Send(new SignUpCommand() { SignUpModel =model});

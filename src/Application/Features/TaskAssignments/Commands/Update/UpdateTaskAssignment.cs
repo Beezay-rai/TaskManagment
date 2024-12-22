@@ -22,10 +22,10 @@ namespace TaskManagementApplication.Features.TaskAssignments.Commands.Update
 
     public class EditTaskAssignmentCommandHandler : IRequestHandler<EditTaskAssignment, (int HttpStatusCode, object data)>
     {
-        private readonly ITaskAssignmentRepository _repo;
+        private readonly IGenericRepository<TaskAssignment> _repo;
         private readonly IMapper _mapper;
 
-        public EditTaskAssignmentCommandHandler(ITaskAssignmentRepository repo, IMapper mapper)
+        public EditTaskAssignmentCommandHandler(IGenericRepository<TaskAssignment> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
@@ -39,7 +39,7 @@ namespace TaskManagementApplication.Features.TaskAssignments.Commands.Update
             try
             {
                 var entity = _mapper.Map<TaskAssignment>(request.EditTaskAssignmentDTO);
-                await _repo.Update(entity);
+                await _repo.UpdateAsync(entity);
                 response.Status = true;
                 response.Message = "Updated Sucessfully !";
                 return (200, response);

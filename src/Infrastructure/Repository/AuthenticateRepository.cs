@@ -1,8 +1,8 @@
 ﻿using TaskManagementApplication.Common;
-using TaskManagementApplication.Interfaces;
 using TaskManagementApplication.Models;
 using Microsoft.AspNetCore.Identity;
 using TaskManagementInfrastructure.Data.Identity;
+using Application.Interfaces;
 namespace TaskManagementInfrastructure.Repository
 {
     public class AuthenticateRepository : IAuthenticateRepository

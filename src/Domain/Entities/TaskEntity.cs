@@ -6,10 +6,10 @@ namespace TaskManagement.Domain.Entities
 {
     public sealed class TaskEntity: BaseAuditableEntity
     {
-        public string Name { get; set; }
-        public int TaskCategoryId { get; set; }
-        public PriorityLevel PriorityLevel { get; set; }
+        public string Name { get; init; }
+        public int TaskCategoryId { get; init; }
+        public PriorityLevel PriorityLevel { get; init; }
         [ForeignKey(nameof(TaskCategoryId))]
-        public TaskCategory TaskCategory { get; set; }
+        public TaskCategory TaskCategory { get; init; }
     }
 }

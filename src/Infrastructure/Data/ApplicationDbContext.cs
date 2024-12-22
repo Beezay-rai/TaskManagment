@@ -16,6 +16,16 @@ namespace TaskManagementInfrastructure.Data
         {
             _httpContextAccessor = httpContextAccessor;
         }
+
+
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+            base.OnModelCreating(builder);
+        }
+
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var user = _httpContextAccessor.HttpContext.User.Identity.Name;

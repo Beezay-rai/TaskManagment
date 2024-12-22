@@ -1,7 +1,7 @@
-﻿using MediatR;
+﻿using Application.Interfaces;
+using MediatR;
 using TaskManagementApplication.Common;
 using TaskManagementApplication.Exception;
-using TaskManagementApplication.Interfaces;
 using TaskManagementApplication.Models;
 
 namespace TaskManagementApplication.Features.Authenticate.Commands

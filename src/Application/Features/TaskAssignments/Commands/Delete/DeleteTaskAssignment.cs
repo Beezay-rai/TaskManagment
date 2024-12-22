@@ -19,10 +19,10 @@ namespace TaskManagementApplication.Features.TaskAssignments.Commands.Delete
 
     public class DeleteTaskAssignmentCommandHandler : IRequestHandler<DeleteTaskAssignment, ResponseModel>
     {
-        private readonly ITaskAssignmentRepository _repo;
+        private readonly IGenericRepository<TaskAssignment> _repo;
         private readonly IMapper _mapper;
 
-        public DeleteTaskAssignmentCommandHandler(ITaskAssignmentRepository repo, IMapper mapper)
+        public DeleteTaskAssignmentCommandHandler(IGenericRepository<TaskAssignment> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
@@ -38,7 +38,7 @@ namespace TaskManagementApplication.Features.TaskAssignments.Commands.Delete
             try
             {
                 var entity = _mapper.Map<TaskAssignment>(request.TaskAssignmentId);
-                await _repo.Delete(entity.Id);
+                await _repo.DeleteAsync(entity.Id);
                 response.Status = true;
                 response.Message = "Deleted Succfully with Id : " + entity.Id;
             }

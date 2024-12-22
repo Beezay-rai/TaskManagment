@@ -4,7 +4,7 @@ using TaskManagementInfrastructure.Data;
 
 namespace TaskManagementInfrastructure.Repository
 {
-    public class TaskCategoryRepository : GenericRepository<TaskCategory>,ITaskCategoryRepository
+    public class TaskCategoryRepository : GenericRepository<TaskCategory> ,ITaskCategoryRepository
     {
         public TaskCategoryRepository(ApplicationDbContext context) : base(context)
         {

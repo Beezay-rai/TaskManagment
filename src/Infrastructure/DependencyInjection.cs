@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Application.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -55,11 +56,11 @@ namespace TaskManagementInfrastructure
 
             #region Service Registration
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddTransient<ITaskCategoryRepository, TaskCategoryRepository>();
-            services.AddTransient<ITaskEntityRepository, TaskEntityRepository>();
-            services.AddTransient<IAuthenticateRepository, AuthenticateRepository>();
-            services.AddTransient<ITaskAssignmentRepository, TaskAssignmentRepository>();
-            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<ITaskCategoryRepository, TaskCategoryRepository>();
+            services.AddScoped<ITaskEntityRepository, TaskEntityRepository>(); 
+            services.AddScoped<IAuthenticateRepository, AuthenticateRepository>();
+            services.AddScoped<ITaskAssignmentRepository, TaskAssignmentRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             #endregion
             //Email Service Registration
             services.Configure<EmailSettingModel>(options => configuration.Bind("EmailSettings", new EmailSettingModel()));

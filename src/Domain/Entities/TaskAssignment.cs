@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskManagement.Domain.Common;
+﻿using TaskManagement.Domain.Common;
 
 namespace TaskManagement.Domain.Entities
 {
     public sealed class TaskAssignment:BaseAuditableEntity
     {
-        public int UserId { get; set; }
-        public DateTime DueDate { get; set; }   
-        public bool IsComplete { get; set; } 
-        public string Remarks { get; set; }
+        public int UserId { get; init; }
+        public DateTime DueDate { get; init; }   
+        public bool IsComplete { get; init; } 
+        public string Remarks { get; init; }
 
     }
 

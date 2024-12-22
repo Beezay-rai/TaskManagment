@@ -1,6 +1,6 @@
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\CoverletSourceRootsMapping_Testing
-C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\testhost.exe
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\testhost.dll
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\testhost.exe
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.TestPlatform.AdapterUtilities.dll
@@ -14,9 +14,9 @@ C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskMan
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\MediatR.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\MediatR.Contracts.dll
-C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
 C:\Users\OnePoint-bijay\Desktop\Projects\MyProjects\TaskManagmentSys\src\TaskManagementApplicationTests\bin\Debug\net7.0\Microsoft.TestPlatform.CoreUtilities.dll

@@ -4,6 +4,6 @@ namespace TaskManagement.Domain.Entities
 {
     public sealed class Department :BaseEntity
     {
-        public string Name { get; set; }
+        public string Name { get; init; }
     }
 }
